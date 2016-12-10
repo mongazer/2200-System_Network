@@ -1,0 +1,64 @@
+CS 2200 Fall 2016
+Project 5
+Name: Yihan Zhou
+GT Number: 903053761
+
+Problem 1B
+----------
+
+1cpu
+Total execution time: 67.6 s
+
+2cpu
+Total execution time: 35.8 s
+
+4cpu
+Total execution time: 33.4 s
+
+There is no linear relationship between the execution time and cpu number since when we increase cpu number, not every cpu is actually in use. 
+
+We use the a piece of data from 4cpu stats as an example,
+
+32.3  2  0  0       Cmysql   Csim     (IDLE)   (IDLE)       < <
+32.4  1  0  0       Cmysql   (IDLE)   (IDLE)   (IDLE)       < <
+32.5  1  0  0       Cmysql   (IDLE)   (IDLE)   (IDLE)       < <
+32.6  1  0  0       Cmysql   (IDLE)   (IDLE)   (IDLE)       < <
+32.7  1  0  0       Cmysql   (IDLE)   (IDLE)   (IDLE)       < <
+32.8  1  0  0       Cmysql   (IDLE)   (IDLE)   (IDLE)       < <
+
+
+Problem 2B
+----------
+
+800ms
+Total time spent in READY state: 325.4 s
+# of Context Switches: 136
+
+600ms
+Total time spent in READY state: 314.5 s
+# of Context Switches: 161
+
+400ms
+Total time spent in READY state: 298.8 s
+# of Context Switches: 203
+
+200ms
+Total time spent in READY state: 285.2 s
+# of Context Switches: 361
+
+When we decrease time slices in RR algorithm, we can observe a obvious increase in the number of context switches along with the decrease of total waiting time. In a real OS, the shortest time slice may not be the best choice since switching context will cost cpu time. Swiching context too often will hurt overall performance if we use the shortest time slice. 
+
+
+Problem 3B
+----------
+
+FIFO
+Total time spent in READY state: 389.9 s
+
+RR(200ms)
+Total time spent in READY state: 285.2 s
+
+Static Priority
+Total time spent in READY state: 137.1 s
+
+Static Priority is the algorithm of the closest approximation of SJF because it has lowest waiting time in Ready state. In fact, SJF is a priority related algorithm, which depends on CPU burst time. With SJF, a task with short CPU burst time is given high priority and vice versa.
